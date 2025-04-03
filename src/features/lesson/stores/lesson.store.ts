@@ -36,7 +36,7 @@ interface LessonStore {
 }
 
 const useLessonStore = create<LessonStore>((set) => ({
-  activeTab: "feed",
+  activeTab: "lessons",
   currentLesson: null,
   currentSlide: 0,
   isAudioEnabled: false,
@@ -48,7 +48,7 @@ const useLessonStore = create<LessonStore>((set) => ({
   startLesson: (lesson) => set(() => ({
     currentLesson: lesson,
     currentSlide: 0,
-    activeTab: "lesson",
+    activeTab: "active_lessons",
     showQuiz: false,
     quizAnswers: [],
     quizCompleted: false,
@@ -75,7 +75,7 @@ const useLessonStore = create<LessonStore>((set) => ({
 
   exitLesson: () => set(() => ({
     currentLesson: null,
-    activeTab: "feed",
+    activeTab: "lessons",
     showQuiz: false,
     quizAnswers: [],
     quizCompleted: false,

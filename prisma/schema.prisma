@@ -74,12 +74,11 @@ model TeacherProfile {
 }
 
 model StudentProfile {
-    id            String  @id @default(cuid())
-    name          String?
-    school        String
-    learningStyle String?
-    user          User?   @relation(fields: [userId], references: [id])
-    userId        String? @unique
+    id     String  @id @default(cuid())
+    name   String?
+    school String
+    user   User?   @relation(fields: [userId], references: [id])
+    userId String? @unique
     // Class  Class[]
 }
 

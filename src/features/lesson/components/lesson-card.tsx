@@ -28,7 +28,7 @@ const LessonCard: React.FC<{ data: GetAllLessonQueryResult, session: Session }> 
           </Badge>
         </div>
         <CardTitle className="text-lg mt-2 p-0">{data.title}</CardTitle>
-        <span className="text-sm font-medium">{data.LessonCompletion.find((item) => item.userId == session?.user.id)?.progress}%</span>
+        <span className="text-sm font-medium">{data.LessonCompletion.find((item) => item.userId == session?.user.id)?.progress ?? 0}%</span>
         <Progress value={data.LessonCompletion.find((item) => item.userId == session?.user.id)?.progress} className="h-2 mb-4" />
         <Button onClick={() => lessonStore.startLesson({
           classId: data.classId,
