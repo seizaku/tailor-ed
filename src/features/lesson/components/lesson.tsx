@@ -12,14 +12,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/com
 import { Badge } from "~/components/ui/badge";
 import { ChevronLeft, ChevronRight, Download, Volume2 } from "lucide-react";
 import { Progress } from "~/components/ui/progress";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { api } from "~/trpc/react";
+import { toast } from "sonner";
 
 
 
 const Lesson: React.FC = () => {
 
   const lessonStore = useLessonStore();
+  const [isSaved, setSaved] = useState(false);
 
   const { mutateAsync: finishLesson } = api.teacher.class.lesson.finishLesson.useMutation()
 
@@ -39,6 +41,11 @@ const Lesson: React.FC = () => {
     lessonStore.exitLesson()
   }
 
+  function handleSave() {
+    setSaved(true);
+    toast.success("Saved!")
+  }
+
   return <>
     {lessonStore.currentLesson && (
       <div className="max-w-3xl mx-auto">
@@ -47,7 +54,7 @@ const Lesson: React.FC = () => {
             Exit Lesson
           </Button>
           <div className="flex items-center space-x-2">
-            <Button variant="ghost" size={"sm"}>
+            <Button onClick={handleSave} variant="ghost" size={"sm"}>
               <Download className="h-5 w-5 mr-2" />
               Download Lesson
             </Button>
