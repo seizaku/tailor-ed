@@ -50,12 +50,12 @@ export default async function Dashboard() {
                     </div>
                     <CardTitle className="text-lg mt-2">{data.title}</CardTitle>
                   </CardHeader>
-
+                  {/* 
                   <CardFooter>
                     <Button variant={"outline"} className="w-full">
                       View Lesson
                     </Button>
-                  </CardFooter>
+                  </CardFooter> */}
                 </Card>
               ))}
 
