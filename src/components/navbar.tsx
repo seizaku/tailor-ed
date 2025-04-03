@@ -1,6 +1,5 @@
 "use client"
 import { BookOpen } from "lucide-react";
-import { Avatar, AvatarFallback } from "~/components/ui/avatar"
 import { Button } from "./ui/button";
 import { signOut } from "next-auth/react";
 
