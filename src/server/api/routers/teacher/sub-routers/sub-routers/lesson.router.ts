@@ -29,12 +29,12 @@ const lessonRouter = createTRPCRouter({
       The lesson should be in JSON format and include:
 
       - title: Lesson title  
-      - slides: A detailed list of slides (at least 10 but add more if needed until lesson is fully explained), each with:  
+      - slides: A detailed list of slides (at least 5), each with:  
         - id: Unique slide identifier  
         - title: Slide title  
         - content: In-depth educational text (several paragraphs)  
         - narration: A spoken version of the content (different)  
-      - quiz: At least 5-10 multiple-choice questions, each with:  
+      - quiz: At least 5 multiple-choice questions, each with:  
         - question: The quiz question  
         - options: Answer choices  
         - answer: Correct option index  
