@@ -14,18 +14,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    createdBy   User   @relation(fields: [createdById], references: [id])
-    createdById String
-
-    @@index([name])
-}
-
 // Necessary for Next auth
 model Account {
     id                       String  @id @default(cuid())
@@ -55,14 +43,17 @@ model Session {
 }
 
 model User {
-    id            String    @id @default(cuid())
-    name          String?
-    email         String?   @unique
-    emailVerified DateTime?
-    image         String?
-    accounts      Account[]
-    sessions      Session[]
-    posts         Post[]
+    id               String             @id @default(cuid())
+    name             String?
+    email            String?            @unique
+    role             String?
+    emailVerified    DateTime?
+    image            String?
+    accounts         Account[]
+    sessions         Session[]
+    LessonCompletion LessonCompletion[]
+    TeacherProfile   TeacherProfile?
+    StudentProfile   StudentProfile?
 }
 
 model VerificationToken {
@@ -71,4 +62,59 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model TeacherProfile {
+    id     String  @id @default(cuid())
+    name   String?
+    school String
+    user   User?   @relation(fields: [userId], references: [id])
+    userId String? @unique
+    Class  Class[]
+}
+
+model StudentProfile {
+    id            String  @id @default(cuid())
+    name          String?
+    school        String
+    learningStyle String?
+    user          User?   @relation(fields: [userId], references: [id])
+    userId        String? @unique
+    // Class  Class[]
+}
+
+model Class {
+    id          String          @id @default(cuid())
+    name        String
+    subject     String?
+    level       String?
+    description String?
+    createdAt   DateTime        @default(now())
+    updatedAt   DateTime        @updatedAt
+    teacher     TeacherProfile? @relation(fields: [userId], references: [userId])
+    userId      String?
+    Lessons     Lesson[]
+}
+
+model Lesson {
+    lessonId         String             @id @default(cuid())
+    title            String
+    topic            String
+    slides           String
+    quiz             String?
+    Class            Class?             @relation(fields: [classId], references: [id])
+    classId          String?
+    LessonCompletion LessonCompletion[]
+}
+
+model LessonCompletion {
+    completionId String @id @default(cuid())
+    Lesson       Lesson @relation(fields: [lessonId], references: [lessonId])
+    lessonId     String
+    User         User   @relation(fields: [userId], references: [id])
+    userId       String
+    progress     Float
+    score        Float
+    correct      Int?
+    total        Int?
 }
