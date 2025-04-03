@@ -24,6 +24,8 @@ interface LessonStore {
   quizCompleted: boolean;
   quizScore: QuizScore | null;
 
+  setIsAudioEnabled: (value: boolean) => void
+
   startLesson: (lesson: Lesson & {
     slides: Slide[]
     quiz: QuizQuestion[]
@@ -44,7 +46,9 @@ const useLessonStore = create<LessonStore>((set) => ({
   quizAnswers: [],
   quizCompleted: false,
   quizScore: null,
-
+  setIsAudioEnabled: (value) => {
+    set({ isAudioEnabled: value })
+  },
   startLesson: (lesson) => set(() => ({
     currentLesson: lesson,
     currentSlide: 0,

@@ -10,7 +10,7 @@ import { Label } from "~/components/ui/label";
 import { Switch } from "~/components/ui/switch";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
-import { ChevronLeft, ChevronRight, Volume2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, Volume2 } from "lucide-react";
 import { Progress } from "~/components/ui/progress";
 import { useEffect } from "react";
 import { api } from "~/trpc/react";
@@ -47,6 +47,10 @@ const Lesson: React.FC = () => {
             Exit Lesson
           </Button>
           <div className="flex items-center space-x-2">
+            <Button variant="ghost" size={"sm"}>
+              <Download className="h-5 w-5 mr-2" />
+              Download Lesson
+            </Button>
             <Label htmlFor="audio-narration" className="text-sm">
               Audio Narration
             </Label>
