@@ -1,9 +1,9 @@
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "~/components/ui/card"
-import { Button, buttonVariants } from "~/components/ui/button"
-import { Users } from "lucide-react"
+import { Card, CardDescription, CardHeader, CardTitle } from "~/components/ui/card"
+// import { Button, buttonVariants } from "~/components/ui/button"
+// import { Users } from "lucide-react"
 import type { GetAllClassQueryResult } from "~/server/api/routers/teacher/sub-routers/class.router.types"
 import type { Session } from "next-auth"
-import Link from "next/link"
+// import Link from "next/link"
 
 const ClassCard: React.FC<{ data: GetAllClassQueryResult, session: Session }> = ({ data, session }) => {
 
@@ -23,12 +23,12 @@ const ClassCard: React.FC<{ data: GetAllClassQueryResult, session: Session }> = 
           </div>
         </div>
       </CardHeader>
-      <CardFooter>
+      {/* <CardFooter>
         <Link href={`/teacher/class/${data.id}`} className={buttonVariants({ className: "w-full", variant: "outline" })}>
           <Users className="mr-2 h-4 w-4" />
           View Class
         </Link>
-      </CardFooter>
+      </CardFooter> */}
     </Card>
   )
 }
