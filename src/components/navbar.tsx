@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
       <div className="flex items-center">
         <div className="flex items-center gap-2">
           <BookOpen />
-          <h1 className="text-2xl font-bold">Tailor<span className="text-primary">Ed</span></h1>
+          <h1 className="text-2xl font-bold">NextEd<span className="text-primary">Ed</span></h1>
         </div>
       </div>
 
