@@ -10,13 +10,13 @@ export default async function Auth() {
 
         <div className="space-y-2 text-center">
           <h1 className="text-4xl font-bold">Next<span className="text-primary">Ed</span></h1>
-          <p className="text-sm text-muted-foreground">Personalizeds learning for every student</p>
+          <p className="text-sm text-muted-foreground">Personalized learning for every student</p>
         </div>
 
         <Card className="max-w-sm w-full">
           <CardHeader>
             <CardTitle className="text-center">
-              Welcome to TailorEd
+              Welcome to NextEd
             </CardTitle>
             <CardDescription className="text-center text-sm text-muted-foreground">
               Sign in to your account
