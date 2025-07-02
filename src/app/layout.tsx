@@ -8,7 +8,7 @@ import { Toaster } from "~/components/ui/sonner";
 import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
-  title: "NextEd",
+  title: "InclusivEd",
   description: "Async.dev",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };

@@ -22,14 +22,14 @@ export default async function Home() {
     <HydrateClient>
       <main className="flex h-screen flex-col items-center justify-center gap-4 bg-accent">
         <div className="space-y-2 text-center">
-          <h1 className="text-4xl font-bold">Next<span className="text-primary">Ed</span></h1>
+          <h1 className="text-4xl font-bold">Inclusiv<span className="text-primary">Ed</span></h1>
           <p className="text-sm text-muted-foreground">Personalizeds learning for every student</p>
         </div>
 
         <Card className="max-w-sm w-full">
           <CardHeader>
             <CardTitle className="text-center">
-              Welcome to NextEd
+              Welcome to InclusivEd
             </CardTitle>
             <CardDescription className="text-center text-sm text-muted-foreground">
               Select your role to get started
